@@ -36,6 +36,8 @@ const CreateEditCategory = ({itemData,setIsModalOpen,refetch}) => {
             descriptionRu: get(itemData,'descriptionRu'),
             number: get(itemData,'number')
         });
+        setImgUrl(get(itemData,'imageUrl'));
+        setIsActive(get(itemData,'active',true));
     }, [itemData]);
     const onFinish = (values) => {
         const formData = {
