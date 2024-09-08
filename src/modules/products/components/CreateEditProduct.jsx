@@ -83,10 +83,10 @@ const CreateEditProduct = ({itemData,setIsModalOpen,refetch}) => {
         new Promise((resolve) => {
             Resizer.imageFileResizer(
                 file,
-                400,
-                400,
+                600,
+                600,
                 "WEBP",
-                60,
+                70,
                 0,
                 (uri) => {
                     resolve(uri);
@@ -95,8 +95,8 @@ const CreateEditProduct = ({itemData,setIsModalOpen,refetch}) => {
             );
         });
     const beforeUpload = async (file) => {
-        const isLt2M = file.size / 1024 / 1024 < 10;
-        if (!isLt2M) {
+        const isLt10M = file.size / 1024 / 1024 < 10;
+        if (!isLt10M) {
             message.error(t('Image must smaller than 10MB!'));
             return;
         }
